@@ -1,9 +1,10 @@
 import React from "react";
+import RecipeList from "./components/RecipeList";
 
 const App = () => {
   return (
     <>
-      <h1 className="text-2xl text-center text-orange-500">Project 1</h1>
+      <RecipeList />
     </>
   );
 };
