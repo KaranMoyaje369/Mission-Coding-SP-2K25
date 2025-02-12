@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "question": "What is React ?",
+    "answer": "React is a javascript library for building user interface"
+  },
+  {
+    "id": 2,
+    "question": "How do I learn React?",
+    "answer": "Start with the official React documentation and tutorials."
+  },
+  {
+    "id": 3,
+    "question": "What is JSX?",
+    "answer": "JSX is a syntax extension for JavaScript that allows you to write HTML-like code in your JavaScript files."
+  },
+  {
+    "id": 4,
+    "question": "What is a React component?",
+    "answer": "A React component is a small, reusable piece of code that represents a UI element, such as a button or a form."
+  },
+  {
+    "id": 5,
+    "question": "What is state in React?",
+    "answer": "State in React refers to the data that changes within a component over time."
+  },
+  {
+    "id": 6,
+    "question": "What is props in React?",
+    "answer": "Props in React refers to the short hand for properties, which are read-only values that are passed from a parent component to a child component."
+  },
+
+  {
+    "id": 7,
+    "question": "What is the best way to learn JavaScript?",
+    "answer": "Practice coding and building projects, and use online resources like MDN and W3Schools."
+  }
+]
