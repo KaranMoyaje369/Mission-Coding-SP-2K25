@@ -1,0 +1,48 @@
+name: Deploy Multiple React Projects
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install and Build MC-Que-1
+        working-directory: MC-Que-1
+        run: |
+          npm install
+          npm run build
+          cp -r dist ../MC-Que-1-dist
+
+      - name: Install and Build MC-Que-2
+        working-directory: MC-Que-2
+        run: |
+          npm install
+          npm run build
+          cp -r dist ../MC-Que-2-dist
+
+      - name: Install and Build MC-Que-3
+        working-directory: MC-Que-3
+        run: |
+          npm install
+          npm run build
+          cp -r dist ../MC-Que-3-dist
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: .
+          target-folder: .
+          clean: true
