@@ -25,6 +25,7 @@ jobs:
           npm run build
           mkdir -p ../deploy/MC-Que-1
           cp -r dist/* ../deploy/MC-Que-1/
+          echo '<meta http-equiv="refresh" content="0;url=/MC-Que-1/">' > ../deploy/index.html
 
       - name: Install and Build MC-Que-2
         working-directory: MC-Que-2
