@@ -43,6 +43,14 @@ jobs:
           mkdir -p ../deploy/MC-Que-3
           cp -r dist/* ../deploy/MC-Que-3/
 
+      - name: Install and Build MC-Que-3
+        working-directory: MC-Que-4
+        run: |
+          npm install
+          npm run build
+          mkdir -p ../deploy/MC-Que-4
+          cp -r dist/* ../deploy/MC-Que-4/
+
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
