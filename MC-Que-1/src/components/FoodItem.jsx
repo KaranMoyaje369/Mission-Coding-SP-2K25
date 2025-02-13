@@ -9,28 +9,13 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-const ExpandMore = styled((props) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
-})(({ theme }) => ({
+// Styled ExpandMore Component Fix
+const ExpandMore = styled(IconButton)(({ theme, expand }) => ({
   marginLeft: "auto",
   transition: theme.transitions.create("transform", {
     duration: theme.transitions.duration.shortest,
   }),
-  variants: [
-    {
-      props: ({ expand }) => !expand,
-      style: {
-        transform: "rotate(0deg)",
-      },
-    },
-    {
-      props: ({ expand }) => !!expand,
-      style: {
-        transform: "rotate(180deg)",
-      },
-    },
-  ],
+  transform: expand ? "rotate(180deg)" : "rotate(0deg)",
 }));
 
 export default function FoodItem({ selectedFood }) {
@@ -41,12 +26,12 @@ export default function FoodItem({ selectedFood }) {
   };
 
   return (
-    <div className="!container !mx-auto flex justify-center">
+    <div className="container mx-auto flex justify-center">
       <Card className="w-full md:w-1/2">
         <CardMedia
           component="img"
           image={selectedFood.image}
-          alt="Paella dish"
+          alt={selectedFood.name}
           className="h-[300px]"
         />
         <div className="p-5">
@@ -83,7 +68,7 @@ export default function FoodItem({ selectedFood }) {
           </CardContent>
           <CardActions disableSpacing>
             <ExpandMore
-              expand={expanded}
+              expand={expanded ? 1 : 0}
               onClick={handleExpandClick}
               aria-expanded={expanded}
               aria-label="show more"
@@ -98,7 +83,7 @@ export default function FoodItem({ selectedFood }) {
               </Typography>
               <div sx={{ marginBottom: 2 }}>
                 <ul>
-                  {selectedFood.ingredients.map((ingredient, id) => (
+                  {selectedFood.ingredients?.map((ingredient, id) => (
                     <li key={id} className="list-disc">
                       {ingredient}
                     </li>
@@ -110,7 +95,7 @@ export default function FoodItem({ selectedFood }) {
               </Typography>
               <div sx={{ marginBottom: 2 }}>
                 <ul>
-                  {selectedFood.instructions.map((instruction, id) => (
+                  {selectedFood.instructions?.map((instruction, id) => (
                     <li key={id} className="list-disc">
                       {instruction}
                     </li>
