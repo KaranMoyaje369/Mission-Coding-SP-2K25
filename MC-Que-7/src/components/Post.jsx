@@ -6,7 +6,7 @@ const Post = () => {
   // State management
   const [likeCount, setLikeCount] = useState(0);
   const [dislikeCount, setDislikeCount] = useState(0);
-  const [userReaction, setUserReaction] = useState(0); // 0: neutral, 1: liked, -1: disliked
+  const [userReaction, setUserReaction] = useState(0); // 0: neutral, 1: liked, -1: disliked.
 
   // Load reaction from local storage on component mount
   useEffect(() => {
