@@ -5,6 +5,7 @@ const RecipeList = () => {
   const [recipes, setRecipes] = useState([]);
   const [error, setError] = useState(null);
   const [searchResults, setSearchResults] = useState([]);
+  const [loading, setLoading] = useState(true); // Loading state to manage fetch status
 
   useEffect(() => {
     const fetchRecipes = async () => {
@@ -19,6 +20,8 @@ const RecipeList = () => {
       } catch (err) {
         setError(err.message);
         console.error("Error fetching recipes:", err);
+      } finally {
+        setLoading(false); // Stop loading once data is fetched
       }
     };
 
@@ -47,7 +50,7 @@ const RecipeList = () => {
       {error && <p style={{ color: "red" }}>Error: {error}</p>}
 
       {/* No results message */}
-      {searchResults.length === 0 && (
+      {searchResults.length === 0 && !loading && (
         <p className="text-center text-red-500 font-semibold mt-2">
           No Food Found
         </p>
