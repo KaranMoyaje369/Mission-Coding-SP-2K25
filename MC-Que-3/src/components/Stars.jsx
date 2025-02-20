@@ -13,7 +13,7 @@ const Stars = ({ totalStars = 5 }) => {
         </h2>
         <div className="flex justify-center space-x-2">
           {[...Array(totalStars)].map((_, index) => {
-            const starValue = index + 1; // Star values from 1 to totalStars
+            const starValue = index + 1; // Star values from 1 to totalStars.
 
             return (
               <FaStar
