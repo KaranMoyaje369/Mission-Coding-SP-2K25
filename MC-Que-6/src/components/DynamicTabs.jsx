@@ -8,7 +8,7 @@ const DynamicTabs = () => {
   ]);
   const [activeTabIndex, setActiveTabIndex] = useState(0);
 
-  // Function to add a new tab
+  // Function to add a new tab.
   const addTab = () => {
     const newTab = {
       id: tabs.length + 1,
