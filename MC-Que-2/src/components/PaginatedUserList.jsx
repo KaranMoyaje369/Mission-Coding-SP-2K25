@@ -10,19 +10,19 @@ const PaginatedUserList = () => {
   const maxVisiblePages = 3; // Only show 3 page numbers at a time
 
   useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const response = await fetch("https://dummyjson.com/users");
+        const data = await response.json();
+        setUsers(data.users);
+        setIsLoading(false);
+      } catch (error) {
+        console.error("Error fetching users:", error);
+      }
+    };
+
     fetchUsers();
   }, []);
-
-  const fetchUsers = async () => {
-    try {
-      const response = await fetch("https://dummyjson.com/users");
-      const data = await response.json();
-      setUsers(data.users);
-      setIsLoading(false);
-    } catch (error) {
-      console.error("Error fetching users:", error);
-    }
-  };
 
   // Pagination logic
   const totalPages = Math.ceil(users.length / usersPerPage);
