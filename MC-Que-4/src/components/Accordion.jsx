@@ -14,6 +14,8 @@ function Accordion() {
       <h1 className="text-3xl font-bold text-center mb-8 text-blue-600">
         Frequently Asked Questions
       </h1>
+
+      {/* data loading using map method */}
       {faqs.map((faq) => (
         <div
           key={faq.id}
