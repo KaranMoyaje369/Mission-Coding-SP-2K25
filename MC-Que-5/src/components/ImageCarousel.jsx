@@ -72,7 +72,7 @@ const ImageCarousel = ({ images }) => {
         </button>
       </div>
 
-      {/* Dot Indicators */}
+      {/* Dot Indicators. */}
       <div className="dot-indicators">
         {images.map((_, index) => (
           <span
