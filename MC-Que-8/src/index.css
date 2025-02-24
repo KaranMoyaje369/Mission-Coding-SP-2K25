@@ -1,68 +1,117 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* App.css */
+.app {
+  padding: 20px;
+  text-align: center;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
+#toggleViewBtn {
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+#toggleViewBtn:hover {
+  background-color: #0056b3;
+}
+
+.product-container {
+  transition: all 0.3s ease;
+}
+
+.product {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* List View Styles */
+.list-view .product {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list-view .product img {
+  width: 100px;
+  height: 100px;
+  margin-left: 20px;
+  border-radius: 5px;
+}
+
+.list-view .details {
+  flex: 1;
+  text-align: left;
+}
+
+/* Grid View Styles */
+.grid-view {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.grid-view .product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.grid-view .product img {
+  width: 100%;
+  height: auto;
+  max-width: 150px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.grid-view .details {
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .grid-view {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
   }
-  a:hover {
-    color: #747bff;
+
+  .list-view .product img {
+    width: 80px;
+    height: 80px;
   }
-  button {
-    background-color: #f9f9f9;
+}
+
+@media (max-width: 480px) {
+  .grid-view {
+    grid-template-columns: repeat(1, 1fr); /* 1 column for mobile */
+  }
+
+  .list-view .product {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .list-view .product img {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+
+  #toggleViewBtn {
+    width: 100%;
+    font-size: 0.9rem;
   }
 }
