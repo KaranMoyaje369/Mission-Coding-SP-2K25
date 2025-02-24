@@ -75,6 +75,14 @@ jobs:
           mkdir -p ../deploy/MC-Que-7
           cp -r dist/* ../deploy/MC-Que-7/
 
+      - name: Install and Build MC-Que-8
+        working-directory: MC-Que-7
+        run: |
+          npm install
+          npm run build
+          mkdir -p ../deploy/MC-Que-8
+          cp -r dist/* ../deploy/MC-Que-8/
+
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
