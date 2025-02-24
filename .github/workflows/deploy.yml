@@ -25,7 +25,7 @@ jobs:
           npm run build
           mkdir -p ../deploy/MC-Que-1
           cp -r dist/* ../deploy/MC-Que-1/
-          echo '<meta http-equiv="refresh" content="0;url=/MC-Que-1/">' > ../deploy/index.html
+          echo '<meta http-equiv="refresh" content="0;url=/Mission-Coding-SP-2K25/MC-Que-1/">' > ../deploy/index.html
 
       - name: Install and Build MC-Que-2
         working-directory: MC-Que-2
@@ -76,7 +76,7 @@ jobs:
           cp -r dist/* ../deploy/MC-Que-7/
 
       - name: Install and Build MC-Que-8
-        working-directory: MC-Que-7
+        working-directory: MC-Que-8
         run: |
           npm install
           npm run build
